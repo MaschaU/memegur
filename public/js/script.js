@@ -12,7 +12,7 @@
             var self = this;
             axios.get("/images").then(function(response) {
                 self.images = response.data;
-                console.log(self.images);
+                console.log("images",self.images);
             });
         },
         methoods: {

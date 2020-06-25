@@ -7,8 +7,10 @@
 <body>
     <div id="main">
         <h1>Image Board</h1>
-        
-        <img v-for='image in images' :src="image.url">
+        <div v-for="image in images">
+        <img :src="image.url">
+        <h3>{{image.title}}</h3>
+    </div>
     </div>
 
 
