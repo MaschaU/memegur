@@ -5,12 +5,30 @@
     <link rel="stylesheet" href="/CSS/styles.css">
 </head>
 <body>
-    <div id="main">
-        <h1>Image Board</h1>
-        <div v-for="image in images">
-        <img :src="image.url">
-        <h3>{{image.title}}</h3>
+    <div id="board-title">
+        <h1>Memegur</h1>
     </div>
+
+    <div id="main">
+        <div v-for="image in images" class="container">
+            <img :src="image.url" class="card">
+            <h3>{{image.title}}</h3>
+    </div>
+
+    <form>
+        <input v-model="title" type="text" name="title" placeholder="title">
+        <input v-model="description" type="text" name="description" placeholder="description">
+        <input v-model="username" type="text" name="username" placeholder="username">
+        <input @change="handleChange" type="file" name="file" accept="image/*">
+        <label for="file" id='file-label'>Select a file</label>
+        <button @click="handleClick">Submit</button>
+    </form>
+
+
+
+
+
+
     </div>
 
 

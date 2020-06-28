@@ -13,6 +13,15 @@ if (process.env.DATABASE_URL) {
 
 exports.getImages = function() {
     return db.query(
-        `SELECT * FROM images`
+        `SELECT * FROM images ORDER BY id DESC`
+    );
+};
+
+//inserting images into db
+
+exports.insertIntoImages = function(url, title, description, username) {
+    return db.query(
+        `INSERT INTO images(url, title, description, username) VALUES ($1, $2, $3, $4)`,
+        [url, title, description, username]
     );
 };
