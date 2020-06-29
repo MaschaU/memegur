@@ -9,7 +9,7 @@ CREATE TABLE images(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO images (url, username, title, description) VALUES (
+/*INSERT INTO images (url, username, title, description) VALUES (
     'https://s3.amazonaws.com/spicedling/jAVZmnxnZ-U95ap2-PLliFFF7TO0KqZm.jpg',
     'funkychicken',
     'Welcome to Spiced and the Future!',
@@ -28,4 +28,4 @@ INSERT INTO images (url, username, title, description) VALUES (
     'discoduck',
     'To be or not to be',
     'That is the question.'
-);
+);*/

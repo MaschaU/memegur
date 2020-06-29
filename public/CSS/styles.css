@@ -1,18 +1,43 @@
-html {
-    background-color: tomato;
+body {
+    background-color: black;
+    font-family: 'Source Code Pro', monospace;
+}
+
+#board-title {
+    width: 100%;
+    height: 50px;
+    text-align: left;
+    margin-left: 70px;
 }
 
 h1 {
-    width: 100%;
-    height: 50px;
-    text-align: center;
+    background-color: black;
+    color: greenyellow;
+    margin-top: 20px;
+    font-size: 50px;
 }
 
-#main {
+
+
+img {
+  object-fit: contain;  
+}
+
+#container-grid {
+    height: 400px;
+    width: 500px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     width: 100%;
+    margin-top: 50px;
+
+}
+
+#container-text {
+    height: 75px;
+    width: 500px;
+    margin-bottom: 10px;
 }
 
 .card {
@@ -20,6 +45,18 @@ h1 {
     width: 500px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    background-color: black;
+}
+
+#title, #description, #username {
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+    border-bottom: 3px solid greenyellow;;
+    background-color: black;
+    color: greenyellow;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 18px;
 }
 
 .card:hover {
@@ -29,4 +66,51 @@ h1 {
 
 .container {
     padding: 2px 16px;
+}
+
+#main-form {
+    margin: 20px;
+}
+
+input {
+    margin-left: 50px;
+}
+
+button {
+    border-radius: 12px;
+    margin-left: 40px;
+    height: 30px;
+    width: 112px;
+    border: 3px solid greenyellow;
+    background-color: black;
+    color: greenyellow;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 18px;
+}
+
+.inputfile {
+	width: 50px;
+	height: 50px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: greenyellow;;
+    background-color: black;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color:black;
+}
+
+.inputfile + label {
+    cursor: pointer;
+    margin-left: 200px;
 }

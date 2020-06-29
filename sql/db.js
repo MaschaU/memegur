@@ -21,7 +21,7 @@ exports.getImages = function() {
 
 exports.insertIntoImages = function(url, title, description, username) {
     return db.query(
-        `INSERT INTO images(url, title, description, username) VALUES ($1, $2, $3, $4)`,
+        `INSERT INTO images(url, title, description, username) VALUES ($1, $2, $3, $4) RETURNING*`,
         [url, title, description, username]
     );
 };

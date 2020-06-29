@@ -45,18 +45,21 @@ app.get("/images", (req, res)=>{
 const s3 = require("./s3.js");
 const {s3Url} = require("./config.json");
 
-//a route for listening requests for files
-app.post("/upload", uploader.single("file"), s3.upload, (req, res)=>{
-    // req.file-->file we just uploaded
-    // req.body-->rest of the input fields
-    // all the info comes from our name attributes
-    // console.log("file:", req.file);
-    // console.log("input:", req.body);
+app.get("/images", (req, res)=>{
+    db.getImages().then(result=>{
+        res.jeson(result.rows);
+    }).catch(error=>{
+        console.log("Error in GET:", error);
+    });
+});
 
+
+
+// a route for listening requests for files
+app.post("/upload", uploader.single("file"), s3.upload, (req, res)=>{
     const {filename} = req.file;
     const url = `${s3Url}${filename}`;
     const {title, description, username} = req.body;
-    //console.log(filename);
 
     // at this point, we have sent the image to Amazon and have a URL it is
     // accessible under. We want to re-render the entire list of images,

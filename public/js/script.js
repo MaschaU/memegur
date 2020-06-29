@@ -1,5 +1,21 @@
 
 (function(){
+    // connection our html to our vue component
+    // it must be equal to our script tag
+    //Vue.component("first-component", {
+    //    template: "#template",
+    //    data: function() {
+    //        return {
+    //            name: "Andrea"
+    //        };
+    //    }
+    //});
+    // for part3 we're passing image id from parent to a child(kebab-case in html)
+
+    var memes = Vue.component("memes", {
+       
+    });
+
     new Vue({
         el: "#main",
         data: {
@@ -37,12 +53,10 @@
                 var self = this;
                 axios.post("/upload", formData).then(function(response){
                     self.images.unshift(response.data);
-                    // clearing the form fields
                     self.title = "";
                     self.description = "";
                     self.username = "";
                     self.file = "";
-                
                 }).catch(function(error) {
                     console.log("Error in post:", error);
                 });
