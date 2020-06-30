@@ -35,13 +35,13 @@
                 self.title = result.data.title;
                 self.description = result.data.description;
                 self.username = result.data.username;
-                console.log("This is the url:", self.url);
+                // console.log("This is the url:", self.url);
             }).catch(function(error){
                 console.log("Error in axios GET:", error);
             });
             //getting comment data
             axios.get(`/comments/${this.id}`).then(function(result){
-                console.log("Comments:", result);
+                // console.log("Comments:", result);
                 self.comments = result.data;
             }).catch(function(error) {
                 console.log("Error in comments:", error);
@@ -53,7 +53,7 @@
             },
             submitComment: function(){
                 const self = this;
-                console.log(this.component_comment);
+                // console.log(this.component_comment);
                 axios.post("/comment", {imageId: this.id, username: this.component_user, comment: this.component_comment}).then(function(result) {
                     self.comments.unshift(result.data);
                 }).catch(function(error){
@@ -79,7 +79,7 @@
             var self = this;
             axios.get("/images").then(function(response) {
                 self.images = response.data;
-                console.log("images",self.images);
+                // console.log("images",self.images);
             });
         },
         methods: {
@@ -88,7 +88,7 @@
             },
             handleClick: function(e) {
                 e.preventDefault(); // to ensure our url won't change
-                console.log("Properties in data are this:",this);
+                // console.log("Properties in data are this:",this);
 
                 // sending data
                 var formData = new FormData();
@@ -111,15 +111,15 @@
                 });
             },
             handleChange: function(e) {
-                console.log("Handle change is running!");
-                console.log("File:", e.target.files[0]);
+                // console.log("Handle change is running!");
+                // console.log("File:", e.target.files[0]);
                 this.file = e.target.files[0];
-                console.log("This after adding file to data", this);
+                // console.log("This after adding file to data", this);
                 var label = document.getElementById("file-label");
                 label.innerHTML = this.file.name;
             },
             setComponentimageId: function(id) {
-                console.log("This is id:", id);
+                // console.log("This is id:", id);
                 this.imageId = id;
             
             },

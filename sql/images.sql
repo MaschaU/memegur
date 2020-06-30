@@ -8,6 +8,7 @@ CREATE TABLE images(
     description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+DROP TABLE IF EXISTS comments;
 
 CREATE TABLE comments(
     comment_id SERIAL PRIMARY KEY,
@@ -17,7 +18,7 @@ CREATE TABLE comments(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO comments (image_id, username, comment) VALUES ($1, $2, $3); 
+--INSERT INTO comments (image_id, username, comment) VALUES ();--
 
 
 /*INSERT INTO images (url, username, title, description) VALUES (
