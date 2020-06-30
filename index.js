@@ -106,8 +106,8 @@ app.get('/comments/:id', (req, res) => {
 
 app.post('/comment', (req, res) => {
 
-    const { imgID, username, comment } = req.body;
-    db.addComment(imgID, username, comment).then(({ rows }) => {
+    const { imageId, username, comment } = req.body;
+    db.addComment(imageId, username, comment).then(({ rows }) => {
         res.json(rows[0]);
     }).catch(err => {
         console.log(err);

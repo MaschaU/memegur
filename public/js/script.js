@@ -54,7 +54,7 @@
             submitComment: function(){
                 const self = this;
                 console.log(this.component_comment);
-                axios.post("/comment", {imgID: this.id, username: this.component_user, comment: this.component_comment}).then(function(result) {
+                axios.post("/comment", {imageId: this.id, username: this.component_user, comment: this.component_comment}).then(function(result) {
                     self.comments.unshift(result.data);
                 }).catch(function(error){
                     console.log("Error in axios POST:", error);
@@ -73,7 +73,7 @@
             description: "",
             username: "",
             file: null,
-            imgID: null
+            imageId: null
         },
         mounted: function() {
             var self = this;
@@ -118,13 +118,13 @@
                 var label = document.getElementById("file-label");
                 label.innerHTML = this.file.name;
             },
-            setComponentimgID: function(id) {
+            setComponentimageId: function(id) {
                 console.log("This is id:", id);
-                this.imgID = id;
+                this.imageId = id;
             
             },
             closeOverlay: function() {
-                this.imgID = null;
+                this.imageId = null;
             }
         }
     });

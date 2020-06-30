@@ -15,8 +15,10 @@ CREATE TABLE comments(
     comment VARCHAR,
     username VARCHAR,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-
 );
+
+INSERT INTO comments (image_id, username, comment) VALUES ($1, $2, $3); 
+
 
 /*INSERT INTO images (url, username, title, description) VALUES (
     'https://s3.amazonaws.com/spicedling/jAVZmnxnZ-U95ap2-PLliFFF7TO0KqZm.jpg',

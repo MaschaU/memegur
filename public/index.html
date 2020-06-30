@@ -17,13 +17,13 @@
                 <input v-model="description" type="text" name="description" placeholder="description" id="description">
                 <input v-model="username" type="text" name="username" placeholder="username" id="username">
                 <input @change="handleChange" type="file" name="file" accept="image/*" id="file" class="inputfile">
-                <label for="file" id='file-label'>Choose a file</label>
+                <label for="file" id="file-label">Choose a file</label>
                 <button @click="handleClick">Submit</button>
             </form>
         </div>
 
         <div id="container-grid">
-            <div v-for="image in images" class="container" @click="setComponentimgID(image.id)">
+            <div v-for="image in images" class="container" @click="setComponentimageId(image.id)">
                 <img :src="image.url" class="card">
                 <div class="container-text">
                     <h3>{{image.title}}</h3>
@@ -32,13 +32,13 @@
             </div>
         </div>
 
-        <card v-if="imgID" :id="imgID" @close="closeOverlay"></card>
+        <card v-if="imageId" :id="imageId" @close="closeOverlay"></card>
     </div>
 
     <!--a template for rendering our component-->
-    <script id='card-popup' type="text/x-template">
+    <script id="card-popup" type="text/x-template">
         <div class="overlay" @click.self="close">
-            <div class='cardFullscreen'>
+            <div class="cardFullscreen">
                 <div class="usernameAndTitle">
                     <h4>{{username}}</h4>
                     <h2>{{title}}</h2>
