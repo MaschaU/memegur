@@ -1,10 +1,10 @@
 const express = require("express");
 const app = express();
-const spicedPg = require("spiced-pg");
 const db = require("./sql/db.js");
 
 
 app.use(express.static("public"));
+app.use(express.json());
 
 
 // boilerplate file upload
@@ -23,6 +23,8 @@ const diskStorage = multer.diskStorage({
         });
     }
 });
+
+//ROUTES//
 
 // uploader runs our discStorage that needs to be up to 2MB
 const uploader = multer({
@@ -53,8 +55,6 @@ app.get("/images", (req, res)=>{
     });
 });
 
-
-
 // a route for listening requests for files
 app.post("/upload", uploader.single("file"), s3.upload, (req, res)=>{
     const {filename} = req.file;
@@ -80,16 +80,41 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res)=>{
     }).then((result) => {
         // This part is a verbatim repeat of the GET route
         db.getImages().then(result=>{
-            return res.json(result.rows);
         }).catch(error=>{
             console.log("Error in GET request:", error);
         });
     }).catch(error=>{
         console.log(error);
     });
-
-    
 });
+
+app.get('/image/:id', (req, res) => {
+    db.getDataFromImages(req.params.id).then(result => {
+        res.json(result.rows[0]);
+    }).catch(err => {
+        console.log(err);
+    });
+});
+
+app.get('/comments/:id', (req, res) => {
+    db.getComments(req.params.id).then(result => {
+        res.json(result.rows);
+    }).catch(err => {
+        console.log(err);
+    });
+});
+
+app.post('/comment', (req, res) => {
+
+    const { imgID, username, comment } = req.body;
+    db.addComment(imgID, username, comment).then(({ rows }) => {
+        res.json(rows[0]);
+    }).catch(err => {
+        console.log(err);
+    });
+});
+
+
 
 
 

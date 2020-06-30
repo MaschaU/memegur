@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
-<head>
-    <title>Image Board</title>
+<text>
+    <title>Memegur</title>
     <link rel="stylesheet" href="/CSS/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
-</head>
+</text>
 <body>
     <div id="board-title">
         <h1>Memegur</h1>
@@ -23,21 +23,45 @@
         </div>
 
         <div id="container-grid">
-            <div v-for="image in images" class="container">
+            <div v-for="image in images" class="container" @click="setComponentimgID(image.id)">
                 <img :src="image.url" class="card">
-                <div id="container-text">
+                <div class="container-text">
                     <h3>{{image.title}}</h3>
                     <h3>{{image.description}}</h3>
                 </div>
             </div>
         </div>
 
-        <memes v-if="memeShow" :id="currentMeme"></memes>
-
+        <card v-if="imgID" :id="imgID" @close="closeOverlay"></card>
     </div>
+
     <!--a template for rendering our component-->
-    <script id="template" type="text/x-template">
-        <div class="component"></div>
+    <script id='card-popup' type="text/x-template">
+        <div class="overlay" @click.self="close">
+            <div class='cardFullscreen'>
+                <div class="usernameAndTitle">
+                    <h4>{{username}}</h4>
+                    <h2>{{title}}</h2>
+                </div>
+                <img :src="url">
+                <div class="info">
+                    <p>{{description}}</p>
+                </div>
+                <div class="commentsInput">
+                    <form>
+                        <input v-model="component_user" type="text" name="user" placeholder="username">
+                        <input v-model="component_comment" type="text" name="comment" placeholder="message...">
+                        <button @click.prevent="submitComment">Comment</button>
+                    </form>
+                </div>
+                <div class="comments">
+                    <div v-for="comment in comments">
+                        <p>{{comment.username}}</p>
+                        <p>{{comment.comment}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </script>
 
 
