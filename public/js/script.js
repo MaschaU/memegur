@@ -1,20 +1,9 @@
 
 (function(){
-    // connection our html to our vue component
-    // it must be equal to our script tag
-    // Vue.component("first-component", {
-    //    template: "#template",
-    //    data: function() {
-    //        return {
-    //            name: "Andrea"
-    //        };
-    //    }
-    // });
-    // for part3 we're passing image id from parent to a child(kebab-case in html)
-
-
     Vue.component("card", {
         template: "#card-popup",
+        // props array for gaining acces to the info being passed
+        // down by the parent
         props:["id"],
         data: function() {
             return {
@@ -29,8 +18,10 @@
         },
         mounted: function() {
             const self = this;
-            //getting image data
+            // getting image data
+            // console.log(location.hash);
             axios.get(`/image/${this.id}`).then(function(result){
+                // console.log(this);
                 self.url = result.data.url;
                 self.title = result.data.title;
                 self.description = result.data.description;
@@ -48,6 +39,7 @@
             });
         },
         methods: {
+            // this method is closing the modal
             close: function() {
                 this.$emit("close");
             },
@@ -73,14 +65,24 @@
             description: "",
             username: "",
             file: null,
-            imageId: null
+            // imageId: null,
+            imageId: location.hash.length>1? location.hash.slice(1) : null
         },
         mounted: function() {
+            // console.log(location.hash);
             var self = this;
             axios.get("/images").then(function(response) {
                 self.images = response.data;
                 // console.log("images",self.images);
             });
+
+            window.addEventListener("hashchange", function(){
+                console.log("It triggers!!!");
+                self.imageId=location.hash.slice(1);
+                
+            });
+            
+            
         },
         methods: {
             myFunction: function() {
@@ -108,6 +110,8 @@
                     self.file = "";
                 }).catch(function(error) {
                     console.log("Error in post:", error);
+                }).finally(function() {
+                    document.getElementById('file-label').innerText='Choose another file';
                 });
             },
             handleChange: function(e) {
@@ -124,7 +128,10 @@
             
             },
             closeOverlay: function() {
+                // console.log("This in image:", imageId);
                 this.imageId = null;
+                // all your base are belong to us
+                window.history.back();
             }
         }
     });

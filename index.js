@@ -49,7 +49,7 @@ const {s3Url} = require("./config.json");
 
 app.get("/images", (req, res)=>{
     db.getImages().then(result=>{
-        res.jeson(result.rows);
+        res.json(result.rows);
     }).catch(error=>{
         console.log("Error in GET:", error);
     });

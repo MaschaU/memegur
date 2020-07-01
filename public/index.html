@@ -9,7 +9,7 @@
     <div id="board-title">
         <h1>Memegur</h1>
     </div>
-
+    <!--all the Vue code is inside of the main div-->
     <div id="main">
         <div id="main-form">
             <form>
@@ -23,19 +23,19 @@
         </div>
 
         <div id="container-grid">
-            <div v-for="image in images" class="container" @click="setComponentimageId(image.id)">
-                <img :src="image.url" class="card">
+            <div v-for="image in images" class="container" > <!--@click="setComponentimageId(image.id)"-->
+                <a :href="'/#' + image.id"><img :src="image.url" class="card"></a>
                 <div class="container-text">
                     <h3>{{image.title}}</h3>
                     <h3>{{image.description}}</h3>
                 </div>
             </div>
         </div>
-
+        <!--our Vue component-->
         <card v-if="imageId" :id="imageId" @close="closeOverlay"></card>
     </div>
 
-    <!--a template for rendering our component-->
+    <!--a script template of the component-->
     <script id="card-popup" type="text/x-template">
         <div class="overlay" @click.self="close">
             <div class="cardFullscreen">
