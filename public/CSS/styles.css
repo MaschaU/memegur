@@ -23,6 +23,11 @@ img {
   object-fit: contain;  
 }
 
+.image-overlay {
+    object-fit: contain;
+    height: 480px;
+}
+
 #container-grid {
     height: 400px;
     display: grid;
@@ -58,10 +63,34 @@ img {
     font-size: 18px;
 }
 
-h3, p {
+h3 {
+    color: greenyellow;
+    height: 10px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+p {
     color: greenyellow;
     height: 50px;
-    text-align: center;
+    text-align: left;
+    margin: 10px;
+}
+
+.form-overlay {
+    margin-left: -40px;
+}
+
+#comments {
+    margin-top: 10px;
+}
+
+.commentsP {
+    margin-top: 20px;
+    height: 25px;
+}
+
+.info {
     margin: 0;
 }
 
@@ -151,6 +180,7 @@ input {
     color: greenyellow;
     font-family: 'Source Code Pro', monospace;
     font-size: 18px;
+    margin-top: 35px;
 
 }
 

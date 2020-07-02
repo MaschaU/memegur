@@ -43,21 +43,21 @@
                     <h4>{{username}}</h4>
                     <h2>{{title}}</h2>
                 </div>
-                <img :src="url">
+                <img class="image-overlay" :src="url">
                 <div class="info">
-                    <p>{{description}}</p>
+                    <p id="comments">{{description}}</p>
                 </div>
                 <div class="commentsInput">
-                    <form>
+                    <form class="form-overlay"> 
                         <input v-model="component_user" type="text" name="user" placeholder="username">
-                        <input v-model="component_comment" type="text" name="comment" placeholder="message...">
+                        <input v-model="component_comment" type="text" name="comment" placeholder="comment...">
                         <button @click.prevent="submitComment">Comment</button>
                     </form>
                 </div>
                 <div class="comments">
                     <div v-for="comment in comments">
-                        <p>{{comment.username}}</p>
-                        <p>{{comment.comment}}</p>
+                        <p class="commentsP">{{comment.username}}</p>
+                        <p class="commentsP">{{comment.comment}}</p>
                     </div>
                 </div>
             </div>
