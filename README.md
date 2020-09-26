@@ -6,7 +6,7 @@ a meme board in monochrome design, as a sort of homage to both the pop-culture o
 
 <strong>Preview</strong>
 <br></br>
-<img width="650" height="350" src="https://media.giphy.com/media/WtPM1haJoVwReU8yS8/giphy.gif"/>
+<img width="400" height="250" src="https://media.giphy.com/media/WtPM1haJoVwReU8yS8/giphy.gif" object-fit:"cover"/>
 
 <strong>Tech Stack</strong>
 <p>HTML, CSS, Node.js with Express, PostgreSQL, Vue.js, AWS(S3), Multer</p>
@@ -25,3 +25,5 @@ a meme board in monochrome design, as a sort of homage to both the pop-culture o
 <li>Working with components</li>
 <li>Using AWS</li>
 </ul>
+
+
