@@ -11,9 +11,9 @@ a meme board in monochrome design, as a sort of homage to both the pop-culture o
 <strong>Tech Stack</strong>
 <p>HTML, CSS, Node.js with Express, PostgreSQL, Vue.js, AWS(S3), Multer</p>
 
-<strong>Features</Strong>
+<strong>Features</trong>
 <ul>
-<li>Users can browse a gallery of memes<li>
+<li>Users can browse a gallery of memes</li>
 <li>Users can click on a meme in order to pop-open a modal with larger version</li>
 <li>Users can leave comments</li>
 <li>Users can upload a meme with its title and description</li>
