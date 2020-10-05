@@ -13,7 +13,7 @@ a meme board in monochrome design, as a sort of homage to both the pop-culture o
 
 <strong>Features</Strong>
 <ul>
-<li>Users can browse a gallery of memes in a 3x2 grid</li>
+<li>Users can browse a gallery of memes<li>
 <li>Users can click on a meme in order to pop-open a modal with larger version</li>
 <li>Users can leave comments</li>
 <li>Users can upload a meme with its title and description</li>
